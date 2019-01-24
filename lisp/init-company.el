@@ -43,7 +43,16 @@
     (add-hook 'company-completion-started-hook 'sanityinc/page-break-lines-disable)
     (add-hook 'company-after-completion-hook 'sanityinc/page-break-lines-maybe-reenable)))
 
-
+(global-company-mode t); 全局开启
+(setq company-idle-delay 0.2;菜单延迟
+      company-minimum-prefix-length 2; 开始补全字数
+      company-require-match nil
+      company-dabbrev-ignore-case nil
+      company-dabbrev-downcase nil
+      company-show-numbers t; 显示序号
+      company-transformers '(company-sort-by-backend-importance)
+      company-continue-commands '(not helm-dabbrev)
+      )
 
 (provide 'init-company)
 ;;; init-company.el ends here
